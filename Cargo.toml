@@ -10,13 +10,14 @@ repository = "https://github.com/serpapi/serpapi-search-rust"
 license = "MIT"
 authors = ["Victor Benarbia <victor@serpapi.com>"]
 keywords = ["serp", "google", "search", "engine", "scrape"]
-categories = ["network-programming", "parsing", "web-programming::http-client", "api-bindings"]
-
-include = [
-  "Cargo.toml",
-  "LICENSE",
-  "src/**/*",
+categories = [
+  "network-programming",
+  "parsing",
+  "web-programming::http-client",
+  "api-bindings",
 ]
+
+include = ["Cargo.toml", "LICENSE", "src/**/*"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -27,4 +28,6 @@ serde_json = "1.0"
 # Asynchronous runtime
 tokio = { version = "1", features = ["full"] }
 # HTTP client
-reqwest = "0.11.7"
+reqwest = { version = "0.11.7", features = [
+  "rustls-tls-native-roots",
+], default-features = false }
